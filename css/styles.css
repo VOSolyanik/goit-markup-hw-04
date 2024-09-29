@@ -5,6 +5,7 @@
   --white-color: #FFFFFF;
   --navy-color: #2E2F42;
   --light-color: #F4F4FD;
+  --light-slate-color: #8E8F99;
   --border-color: #E7E9FC;
 
   --primary-text-color: #434455;
@@ -12,6 +13,8 @@
 
   --primary-color: #4D5AE5;
   --primary-active-color: #404BBF;
+
+  --green-color: #00D3A1;
 }
 
 h1,
@@ -134,13 +137,35 @@ h6 {
 }
 
 .nav-menu-link {
+  position: relative;
   display: inline-block;
   padding: 24px 0;
   font-weight: 500;
   color: var(--navy-color);
   letter-spacing: 0.02em;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.nav-menu-link:after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--primary-color);
+  opacity: 0;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-menu-link.active:after {
+  opacity: 1;
+}
+
+
+.nav-menu-link.active,
 .nav-menu-link:hover,
 .nav-menu-link:focus {
   color: var(--primary-active-color);
@@ -161,6 +186,7 @@ h6 {
   padding: 24px 0;
   color: var(--primary-text-color);
   letter-spacing: 0.02em;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .contact-link:hover,
@@ -192,6 +218,7 @@ h6 {
   line-height: 1.5;
   letter-spacing: 0.04em;
   cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .primary-button:hover,
@@ -200,8 +227,14 @@ h6 {
 }
 
 .hero-section {
+  max-width: 1440px;
   padding: 188px 0;
+  margin: 0 auto;
   background-color: var(--navy-color);
+  background-image: linear-gradient(rgba(46, 47, 66, 0.7), rgba(46, 47, 66, 0.7)), url(../images/people-office.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   color: var(--light-color);
   text-align: center;
   font-weight: 500;
@@ -260,6 +293,24 @@ h6 {
   flex: 1;
 }
 
+.feature-icon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 24px 0;
+  margin-bottom: 8px;
+  border: 1px solid var(--light-slate-color);
+  background-color: var(--light-color);
+  border-radius: 4px;
+}
+
+.feature-icon {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+}
+
 .team-section {
   background-color: var(--light-color);
 }
@@ -282,7 +333,41 @@ h6 {
 }
 
 .team-member-info {
-  padding: 32px 0;
+  padding: 32px 16px;
+}
+
+.team-member-description {
+  margin-bottom: 8px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.social-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-link:hover,
+.social-link:focus {
+  background-color: var(--green-color);
+}
+
+.social-icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  fill: var(--white-color);
 }
 
 .portfolio-section {
@@ -302,6 +387,35 @@ h6 {
   background-color: var(--white-color);
 }
 
+.portfolio-content {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-overlay-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 40px 32px;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-item:hover {
+  box-shadow: 0px 2px 1px 0px #2E2F4214,
+    0px 1px 1px 0px #2E2F4229,
+    0px 1px 6px 0px #2E2F4214;
+
+}
+
+.portfolio-item:hover .portfolio-overlay-info {
+  transform: translateY(0);
+}
+
 .portfolio-info {
   padding: 32px 16px;
   border: 1px solid var(--border-color);
@@ -318,9 +432,33 @@ h6 {
   margin-bottom: 16px;
 }
 
-.footer-description {
-  max-width: 264px;
+.footer-content {
+  display: flex;
+  align-items: flex-start;
   color: var(--light-color);
   font-size: 16px;
   line-height: 1.5;
+}
+
+.footer-copy {
+  max-width: 264px;
+  margin-right: 120px;
+}
+
+.footer-description {
+  color: var(--light-color);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.social-media-title {
+  margin-bottom: 16px;
+  color: var(--light-color);
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.social-media .social-links {
+  gap: 16px;
 }
