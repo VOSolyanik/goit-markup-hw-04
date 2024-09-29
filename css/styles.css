@@ -14,7 +14,7 @@
   --primary-color: #4D5AE5;
   --primary-active-color: #404BBF;
 
-  --green-color: #00D3A1;
+  --green-color: #31d0aa;
 }
 
 h1,
@@ -411,7 +411,7 @@ h6 {
   height: 100%;
   padding: 40px 32px;
   background-color: var(--primary-color);
-  color: var(--white-color);
+  color: var(--light-color);
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
@@ -441,10 +441,7 @@ h6 {
 
 .page-footer .container {
   display: flex;
-  align-items: flex-start;
-  color: var(--light-color);
-  font-size: 16px;
-  line-height: 1.5;
+  align-items: baseline;
 }
 
 .footer-copy {
@@ -456,11 +453,12 @@ h6 {
   color: var(--light-color);
   font-size: 16px;
   line-height: 1.5;
+  letter-spacing: 0.02em;
 }
 
 .social-media-title {
   margin-bottom: 16px;
-  color: var(--light-color);
+  color: var(--white-color);
   font-size: 16px;
   line-height: 1.5;
   font-weight: 500;
@@ -469,4 +467,9 @@ h6 {
 
 .social-media .social-links {
   gap: 16px;
+}
+
+.social-media .social-link:hover,
+.social-media .social-link:focus {
+  background-color: var(--green-color);
 }
