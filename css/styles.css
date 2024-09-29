@@ -370,8 +370,6 @@ h6 {
 
 .social-icon {
   display: inline-block;
-  width: 24px;
-  height: 24px;
   fill: var(--light-color);
 }
 
@@ -471,9 +469,4 @@ h6 {
 
 .social-media .social-links {
   gap: 16px;
-}
-
-.social-media .social-icon {
-  width: 24px;
-  height: 24px;
 }
